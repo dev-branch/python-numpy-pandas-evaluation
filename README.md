@@ -25,6 +25,8 @@ One of the reasons that the shipwreck led to such loss of life was that there we
 
 You are to complete the analysis of what sorts of people were likely to survive.
 
+What is a baseline metric for this problem, and how much better is your model than this baseline?
+
 Use `train.csv` as the data file.
 
 ```
