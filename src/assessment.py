@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
 
+# Write tests for all of the challenges below.
 
 # PYTHON SECTION
-
+# don't use numpy
 def count_characters(string):
     '''
     INPUT: STRING
@@ -109,7 +110,7 @@ def boolean_indexing(arr, minimum):
 
 
 # Pandas SECTION
-
+# you may use numpy
 def make_series(start, length, index):
     '''
     INPUTS: INT, INT, LIST (of length "length")
