@@ -14,7 +14,13 @@ def count_characters(string):
     Characters which with a count of 0 should not be included in the
     output dictionary.
     '''
-    pass
+    char_dict = {}
+    for char in string:
+        if char not in char_dict:
+            char_dict[char] = 1
+        else:
+            char_dict[char] += 1
+    return char_dict
 
 
 def invert_dictionary(d):
@@ -28,7 +34,13 @@ def invert_dictionary(d):
     the set of d's keys which shared the same value.
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
-    pass
+    new_d = {}
+    for k,v in d.items():
+        if v not in new_d:
+            new_d[v] = set(k)
+        else:
+            new_d[v].update(k)
+    return new_d
 
 
 def word_count(filename):
@@ -44,7 +56,17 @@ def word_count(filename):
       2. number of words (broken by whitespace)
       3. number of characters
     '''
-    pass
+    line_count = 0
+    word_count = 0
+    char_count = 0
+    with open(filename, 'r') as f:
+        for line in f:
+            words = line.split()
+            line_count += 1
+            word_count += len(words)
+            char_count += len(line)
+
+    return line_count, word_count, char_count
 
 
 def matrix_multiplication(A, B):
@@ -67,7 +89,24 @@ def matrix_multiplication(A, B):
 
     Please do not use numpy. Write your solution in straight python.
     '''
-    pass
+    
+    new_matrix = []
+
+    # for Arow in range(len(A)):
+    #     #new_matrix     row.append ETC [row]
+    #     for Bcol in range(len(B[0])):
+    #         for Brow in range(len(B)):
+    #             new_matrix[Arow][Bcol] += A[Arow][Brow] * B[Brow][Bcol]
+
+    new_matrix = [[sum(a*b for a,b in zip(A_row, B_col))
+               for B_col in zip(*B)] for A_row in A]
+
+    return new_matrix
+
+# a = [[5, 3, 8], [9, 0, 1],[6,9,3]]
+# b = [[1, 2, 3], [4, 5, 6],[6,1,2]]
+# print(matrix_multiplication(a,b))
+
 
 
 # NumPy SECTION
@@ -89,7 +128,8 @@ def array_work(rows, cols, scalar, matrixA):
             [5, 6],   *   [5, 5, 5]]
             [7, 8]]
     '''
-    pass
+    matrixNew = np.full((rows, cols), scalar)
+    return np.dot(matrixA, matrixNew)
 
 
 def boolean_indexing(arr, minimum):
@@ -105,7 +145,7 @@ def boolean_indexing(arr, minimum):
     In [1]: boolean_indexing([[3, 4, 5], [6, 7, 8]], 7)
     Out[1]: array([7, 8])
     '''
-    pass
+    return arr[arr >= minimum]
 
 
 # Pandas SECTION
@@ -128,7 +168,9 @@ def make_series(start, length, index):
     c    7
     dtype: int64
     '''
-    pass
+    return pd.Series(range(start,start+length), index=index)
+
+# print (make_series(5, 3, ['a', 'b', 'c']))
 
 
 def data_frame_work(df, colA, colB, colC):
@@ -139,4 +181,4 @@ def data_frame_work(df, colA, colB, colC):
     Insert a column (colC) into the dataframe that is the sum of colA and colB.
     Assume that df contains columns colA and colB and that these are numeric.
     '''
-    pass
+    df[colC] = df[colA] + df[colB]
