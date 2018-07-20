@@ -15,6 +15,8 @@ You have an `assessment.py` and `testing.py` file. You should create a `src` and
 
 Complete the functions in `assessment.py` and use the code in `testing.py` to make sure your code is correct.
 
+You will have to slightly alter `testing.py` to get it to work with `assessment.py`.
+
 ### Titanic Modeling
 
 The sinking of the RMS Titanic is one of the most infamous shipwrecks in history. On April 15, 1912, during her maiden voyage, the Titanic sank after colliding with an iceberg, killing 1502 out of 2224 passengers and crew.
