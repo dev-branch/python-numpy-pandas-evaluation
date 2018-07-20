@@ -8,13 +8,14 @@ def test_count_characters():
     result = a.count_characters(string)
     assert (result == answer)
 
-'''
-def test_invert_dictionary(self):
+
+def test_invert_dictionary():
     d = {"a": 4, "b": 2, "c": 1, "d": 1, "e": 1, "f": 2, "g": 2}
     result = {4: {'a'}, 2: {'b', 'f', 'g'}, 1: {'c', 'd', 'e'}}
-    self.assertEqual(a.invert_dictionary(d), result)
+    assert (a.invert_dictionary(d) == result)
+    print(a.invert_dictionary(d))
 
-
+'''
 def test_word_count(self):
     self.assertEqual(a.word_count('data/alice.txt'), (17, 1615, 8449))
 

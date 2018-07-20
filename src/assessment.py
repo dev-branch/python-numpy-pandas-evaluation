@@ -34,7 +34,13 @@ def invert_dictionary(d):
     the set of d's keys which shared the same value.
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
-    pass
+    d_out = {}
+    for char in d:
+        if d[char] not in d_out:
+            d_out[d[char]] = {char}
+        else:
+            d_out[d[char]].add(char)
+    return d_out
 
 
 def word_count(filename):
