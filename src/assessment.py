@@ -7,18 +7,14 @@ class Assessment:
     def count_characters(_self, string):
         return {c: string.count(c) for c in string}
 
-#     def invert_dictionary(d):
-#         '''
-#         INPUT: DICT
-#         OUTPUT: DICT (of sets of input keys indexing the same input values
-#                       indexed by the input values)
-#
-#         Given a dictionary d, return a new dictionary with d's values
-#         as keys and the value for a given key being
-#         the set of d's keys which shared the same value.
-#         e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
-#         '''
-#         pass
+    def invert_dictionary(_self, d):
+        result = {}
+        for k,v in d.items():
+            if v not in result:
+                result[v] = {k}
+            else:
+                result[v].add(k)
+        return result
 #
 #
 #     def word_count(filename):

@@ -1,6 +1,11 @@
 .ipynb_checkpoints
+
 test/.ipynb_checkpoints
-src/.ipynb_checkpoints
 test/.pytest_cache
 test/__pycache__
+
+.pytest_cache
+
+src/.ipynb_checkpoints
 src/__pycache__
+src/workbook.ipynb
