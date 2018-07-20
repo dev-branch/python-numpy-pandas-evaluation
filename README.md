@@ -1,5 +1,14 @@
 # python-numpy-pandas-evaluation
 
+### Pull Request
+
+There are 2 items to this evaluation.
+
+- Programming
+- Modeling
+
+After you have completed the assignment, send a pull request back to the original github repository.
+
 ### Programming
 
 You have an `assessment.py` and `testing.py` file. You should create a `src` and `test` directory for each with the `__init__.py` file. You should use `pytest` to make sure your code is working.
