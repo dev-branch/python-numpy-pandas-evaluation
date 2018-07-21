@@ -17,7 +17,7 @@ def count_characters(string):
     new_d = dict()
     
     for char in string:
-        if char not in new_d.keys():
+        if char not in new_d:
             new_d[char]=string.count(char)
     return new_d
 
@@ -37,13 +37,12 @@ def invert_dictionary(d):
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
     d1= dict()
-    new_d = dict()
+
     for key, val in d.items():
-        if val in d1.keys():
-            d1[val].append(key)
+        if val in d1:
+            d1[val].update(key)
         else:
-            d1[val]=list(key)
-   # new_d = map(lambda x: dict(x), d1.values())
+            d1[val]=set(key)
     return d1
 
 #print(invert_dictionary({"a": 4, "b": 2, "c": 1, "d": 1, "e": 1, "f": 2, "g": 2}))
@@ -61,12 +60,13 @@ def word_count(filename):
       2. number of words (broken by whitespace)
       3. number of characters
     '''
-    with open('alice.txt') as f:
+    with open(filename,'r') as f:
         read_data = f.read()
         lst = []
         chars = len(read_data)
-        words = len(read_data.split(' '))
         lines =len(read_data.split('\n'))
+        words = len(read_data.split())
+       
     f.closed
     return tuple([lines, words, chars])
 
