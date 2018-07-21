@@ -14,7 +14,15 @@ def count_characters(string):
     Characters which with a count of 0 should not be included in the
     output dictionary.
     '''
-    pass
+    new_d = dict()
+    
+    for char in string:
+        if char not in new_d.keys():
+            new_d[char]=string.count(char)
+    return new_d
+
+
+#print(count_characters("abafdcggfaabe"))
 
 
 def invert_dictionary(d):
@@ -28,8 +36,17 @@ def invert_dictionary(d):
     the set of d's keys which shared the same value.
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
-    pass
+    d1= dict()
+    new_d = dict()
+    for key, val in d.items():
+        if val in d1.keys():
+            d1[val].append(key)
+        else:
+            d1[val]=list(key)
+   # new_d = map(lambda x: dict(x), d1.values())
+    return d1
 
+#print(invert_dictionary({"a": 4, "b": 2, "c": 1, "d": 1, "e": 1, "f": 2, "g": 2}))
 
 def word_count(filename):
     '''
@@ -44,8 +61,16 @@ def word_count(filename):
       2. number of words (broken by whitespace)
       3. number of characters
     '''
-    pass
+    with open('alice.txt') as f:
+        read_data = f.read()
+        lst = []
+        chars = len(read_data)
+        words = len(read_data.split(' '))
+        lines =len(read_data.split('\n'))
+    f.closed
+    return tuple([lines, words, chars])
 
+#print(word_count('alice.txt'))
 
 def matrix_multiplication(A, B):
     '''
@@ -67,8 +92,24 @@ def matrix_multiplication(A, B):
 
     Please do not use numpy. Write your solution in straight python.
     '''
-    pass
+    results,interm=[], []
+    val=0
+    for i in range(3):
+        for j in range(3):
+            for k in range(3):
+                val+=A[i][k] * B[k][j]
+            interm.append(val)
+            val=0
+        results.append(interm)
+        interm=[]
+        
+    return results
 
+'''
+A = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]]
+B = [[8, -3, 1], [-7, 3, 2], [0, 3, 3]]
+print(matrix_multiplication(A, B))
+'''
 
 # NumPy SECTION
 
@@ -89,8 +130,18 @@ def array_work(rows, cols, scalar, matrixA):
             [5, 6],   *   [5, 5, 5]]
             [7, 8]]
     '''
-    pass
 
+    return(matrixA.dot(np.full((rows,cols),scalar)))
+
+'''    
+matrixA = np.array([[-4, -2],
+                    [0, -3],
+                    [-4, -1],
+                    [-1, 1],
+                    [-3, 0]])
+print(array_work(2, 3, 4, matrixA))
+print(array_work(2, 2, 6, matrixA))
+'''
 
 def boolean_indexing(arr, minimum):
     '''
@@ -105,12 +156,18 @@ def boolean_indexing(arr, minimum):
     In [1]: boolean_indexing([[3, 4, 5], [6, 7, 8]], 7)
     Out[1]: array([7, 8])
     '''
-    pass
+    return arr[arr >= minimum]
 
+""" arr = np.array([[-4, -4, -3],
+                    [-1, 16, -4],
+                    [-3, 6, 4]])
+print(boolean_indexing(arr, 0))
+print(boolean_indexing(arr, 10))
+"""
 
 # Pandas SECTION
 
-def make_series(start, length, index):
+def make_series(start, length, idx):
     '''
     INPUTS: INT, INT, LIST (of length "length")
     OUTPUT: PANDAS SERIES (of "length" sequential integers
@@ -128,8 +185,11 @@ def make_series(start, length, index):
     c    7
     dtype: int64
     '''
-    pass
+    return pd.Series(range(start, start+length), index = idx)
 
+
+#print(make_series(7, 4, ['a', 'b', 'c', 'd']))
+#print(make_series(22, 5, ['a', 'b', 'c', 'd', 'hi']))
 
 def data_frame_work(df, colA, colB, colC):
     '''
@@ -139,4 +199,14 @@ def data_frame_work(df, colA, colB, colC):
     Insert a column (colC) into the dataframe that is the sum of colA and colB.
     Assume that df contains columns colA and colB and that these are numeric.
     '''
-    pass
+    df[colC] = df[colA] + df[colB]
+    return df
+
+'''
+df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
+colA, colB, colC = ('a', 'b', 'c')
+df2=data_frame_work(df, colA, colB, colC)
+print(df2)
+print(df2.columns.tolist())
+print(df2[colC].tolist())
+'''
