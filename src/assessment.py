@@ -21,6 +21,7 @@ def count_characters(string):
         else:
             d[char] += 1
     return d
+   
 
 
 def invert_dictionary(d):
@@ -56,7 +57,17 @@ def word_count(filename):
       2. number of words (broken by whitespace)
       3. number of characters
     '''
-    pass
+    nlin = 0
+    nword = 0
+    nchar = 0
+    f = open(filename)
+    lines = f.readlines()
+    for line in lines:
+        nlin += 1
+        nword += len(line.split(' '))
+        nchar += len(line)
+
+    return (nlin,nword,nchar)
 
 
 def matrix_multiplication(A, B):
@@ -79,8 +90,17 @@ def matrix_multiplication(A, B):
 
     Please do not use numpy. Write your solution in straight python.
     '''
-    pass
-
+    '''
+    # iterate through rows of A
+    for i in range(len(A)):
+        # iterate through columns of B
+        for j in range(len(B[0])):
+            # iterate through rows of B
+            for k in range(len(B)):
+                result[i][j] += A[i][k] * B[k][j]
+    return result
+    '''
+    return [[sum(a*b for a,b in zip(A_row,B_col)) for B_col in zip(*B)] for A_row in A]
 
 # NumPy SECTION
 
@@ -101,7 +121,7 @@ def array_work(rows, cols, scalar, matrixA):
             [5, 6],   *   [5, 5, 5]]
             [7, 8]]
     '''
-    pass
+    return np.dot(matrixA, np.full((rows, cols), scalar))
 
 
 def boolean_indexing(arr, minimum):
@@ -117,7 +137,7 @@ def boolean_indexing(arr, minimum):
     In [1]: boolean_indexing([[3, 4, 5], [6, 7, 8]], 7)
     Out[1]: array([7, 8])
     '''
-    pass
+    return arr[arr >= minimum]
 
 
 # Pandas SECTION
@@ -140,7 +160,7 @@ def make_series(start, length, index):
     c    7
     dtype: int64
     '''
-    pass
+    return pd.Series(range(start,start + length), index)
 
 
 def data_frame_work(df, colA, colB, colC):
@@ -151,4 +171,5 @@ def data_frame_work(df, colA, colB, colC):
     Insert a column (colC) into the dataframe that is the sum of colA and colB.
     Assume that df contains columns colA and colB and that these are numeric.
     '''
-    pass
+    df[colC] = df[colA] + df[colB]
+    return df
