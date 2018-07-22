@@ -1,4 +1,5 @@
 from src.assessment import Assessment
+import numpy as np
 import pytest
 
 def test_count_characters():
@@ -26,30 +27,30 @@ def test_matrix_multiplication():
     B = [[8, -3, 1], [-7, 3, 2], [0, 3, 3]]
     answer = [[-5, 15, 20], [20, 0, 20], [-22, 9, 3]]
     assert a.matrix_multiplication(A, B) == answer
-#
-# def test_array_work(self):
-#     matrixA = np.array([[-4, -2],
-#                         [0, -3],
-#                         [-4, -1],
-#                         [-1, 1],
-#                         [-3, 0]])
-#     answer1 = np.array([[-24, -24, -24],
-#                         [-12, -12, -12],
-#                         [-20, -20, -20],
-#                         [0, 0, 0],
-#                         [-12, -12, -12]])
-#     result1 = a.array_work(2, 3, 4, matrixA)
-#     self.assertTrue(np.all(answer1 == result1))
-#
-#     answer2 = np.array([[-36, -36],
-#                         [-18, -18],
-#                         [-30, -30],
-#                         [0, 0],
-#                         [-18, -18]])
-#     result2 = a.array_work(2, 2, 6, matrixA)
-#     self.assertTrue(np.all(answer2 == result2))
-#
-#
+
+def test_array_work():
+    a = Assessment()
+    matrixA = np.array([[-4, -2],
+                        [0, -3],
+                        [-4, -1],
+                        [-1, 1],
+                        [-3, 0]])
+    answer1 = np.array([[-24, -24, -24],
+                        [-12, -12, -12],
+                        [-20, -20, -20],
+                        [0, 0, 0],
+                        [-12, -12, -12]])
+    result1 = a.array_work(2, 3, 4, matrixA)
+    assert np.all(answer1 == result1)
+
+    answer2 = np.array([[-36, -36],
+                        [-18, -18],
+                        [-30, -30],
+                        [0, 0],
+                        [-18, -18]])
+    result2 = a.array_work(2, 2, 6, matrixA)
+    assert np.all(answer2 == result2)
+
 # def test_make_series(self):
 #     result = a.make_series(7, 4, ['a', 'b', 'c', 'd'])
 #     self.assertTrue(isinstance(result, pd.Series))

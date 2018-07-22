@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import re
 
 # PYTHON SECTION
 
@@ -36,28 +35,12 @@ class Assessment:
                     product[A_row][B_column] += A[A_row][B_row] * B[B_row][B_column]
         return product
 
-# # NumPy SECTION
-#
-# def array_work(rows, cols, scalar, matrixA):
-#     '''
-#     INPUT: INT, INT, INT, NUMPY ARRAY
-#     OUTPUT: NUMPY ARRAY
-#     (of matrix product of r-by-c matrix of "scalar"'s time matrixA)
-#
-#     Create matrix of size (rows, cols) with elements initialized to the scalar
-#     value. Right multiply that matrix with the passed matrixA (i.e. AB, not
-#     BA).  Return the result of the multiplication.  You needn't check for
-#     matrix compatibililty, but you accomplish this in a single line.
-#
-#     E.g., array_work(2, 3, 5, [[3, 4], [5, 6], [7, 8]])
-#            [[3, 4],      [[5, 5, 5],
-#             [5, 6],   *   [5, 5, 5]]
-#             [7, 8]]
-#     '''
-#     pass
-#
-#
-# def boolean_indexing(arr, minimum):
+    # NumPy SECTION
+
+    def array_work(_self, rows, cols, scalar, matrixA):
+        return np.dot(matrixA, np.array([[scalar]*cols for row in range(rows)]))
+
+    # def boolean_indexing(arr, minimum):
 #     '''
 #     INPUT: NUMPY ARRAY, INT
 #     OUTPUT: NUMPY ARRAY
