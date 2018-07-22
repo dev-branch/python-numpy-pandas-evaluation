@@ -77,12 +77,12 @@ def test_make_series():
     assert result['hi']== 26
 
 
-# def test_data_frame_work(self):
-#     df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
-#     colA, colB, colC = ('a', 'b', 'c')
-#     a.data_frame_work(df, colA, colB, colC)
-#     self.assertTrue(colC in df.columns.tolist())
-#     self.assertEqual(df[colC].tolist(), [5, 7, 9])
-#
-#
-# 
+def test_data_frame_work():
+    a = Assessment()
+    df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
+    colA, colB, colC = ('a', 'b', 'c')
+    a.data_frame_work(df, colA, colB, colC)
+    assert colC in df.columns.tolist()
+    assert df[colC].tolist() == [5, 7, 9]
+
+

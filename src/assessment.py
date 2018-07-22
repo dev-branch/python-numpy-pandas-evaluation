@@ -1,9 +1,11 @@
 import numpy as np
 import pandas as pd
 
-# PYTHON SECTION
 
 class Assessment:
+    
+    # PYTHON SECTION
+    
     def count_characters(_self, string):
         return {c: string.count(c) for c in string}
 
@@ -47,13 +49,6 @@ class Assessment:
 
     def make_series(_self, start, length, index):
         return pd.Series(range(start, start + length), index)
-#
-# def data_frame_work(df, colA, colB, colC):
-#     '''
-#     INPUT: DATAFRAME, STR, STR, STR
-#     OUTPUT: None
-#
-#     Insert a column (colC) into the dataframe that is the sum of colA and colB.
-#     Assume that df contains columns colA and colB and that these are numeric.
-#     '''
-#     pass
+
+    def data_frame_work(_self, df, colA, colB, colC):
+        df[colC] = df[colA] + df[colB]
