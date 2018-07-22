@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import re
 
 # PYTHON SECTION
 
@@ -15,24 +16,17 @@ class Assessment:
             else:
                 result[v].add(k)
         return result
-#
-#
-#     def word_count(filename):
-#         '''
-#         INPUT: STRING
-#         OUTPUT: INT, INT, INT (a tuple with line, word,
-#                                and character count of named INPUT file)
-#
-#         The INPUT filename is the name of a text file.
-#         The OUTPUT is a tuple containting (in order)
-#         the following stats for the text file:
-#           1. number of lines
-#           2. number of words (broken by whitespace)
-#           3. number of characters
-#         '''
-#         pass
-#
-#
+
+
+    def word_count(_self, filename):
+        with open('../data/alice.txt', 'r') as f:
+            lines, words, chars = 0, 0, 0
+            for line in f:
+                lines += 1
+                words += len(line.split())
+                chars += len(line)
+            return (lines, words, chars)
+
 #     def matrix_multiplication(A, B):
 #         '''
 #         INPUT: LIST (of length n) OF LIST (of length n) OF INTEGERS,

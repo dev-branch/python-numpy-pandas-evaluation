@@ -14,9 +14,10 @@ def test_invert_dictionary():
     result = {4: {'a'}, 2: {'b', 'f', 'g'}, 1: {'c', 'd', 'e'}}
     assert a.invert_dictionary(d) == result
 
-#
-# def test_word_count(self):
-#     self.assertEqual(a.word_count('data/alice.txt'), (17, 1615, 8449))
+
+def test_word_count():
+    a = Assessment()
+    assert a.word_count('../data/alice.txt') == (17, 1615, 8449)
 #
 #
 # def test_matrix_multiplication(self):
