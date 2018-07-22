@@ -1,5 +1,6 @@
 from src.assessment import Assessment
 import numpy as np
+import pandas as pd
 import pytest
 
 def test_count_characters():
@@ -63,16 +64,17 @@ def test_boolean_indexing():
     answer2 = np.array([16])
     assert np.all(result2 == answer2)
 
-# def test_make_series(self):
-#     result = a.make_series(7, 4, ['a', 'b', 'c', 'd'])
-#     self.assertTrue(isinstance(result, pd.Series))
-#     assert result['a'] = 7
-#     self.assertEqual(result['d'], 10)
+def test_make_series():
+    a = Assessment()
+    result = a.make_series(7, 4, ['a', 'b', 'c', 'd'])
+    assert isinstance(result, pd.Series)
+    assert result['a'] == 7
+    assert result['d'] == 10
 
-#     result = a.make_series(22, 5, ['a', 'b', 'c', 'd', 'hi'])
-#     self.assertEqual(result['a'], 22)
-#     self.assertEqual(result['d'], 25)
-#     self.assertEqual(result['hi'], 26)
+    result = a.make_series(22, 5, ['a', 'b', 'c', 'd', 'hi'])
+    assert result['a'] == 22
+    assert result['d'] == 25
+    assert result['hi']== 26
 
 
 # def test_data_frame_work(self):

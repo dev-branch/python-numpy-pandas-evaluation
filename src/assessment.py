@@ -43,28 +43,10 @@ class Assessment:
     def boolean_indexing(_self, arr, minimum):
         return [arr[arr >= minimum]]
 
-# # Pandas SECTION
+    # Pandas SECTION
 
-# def make_series(start, length, index):
-#     '''
-#     INPUTS: INT, INT, LIST (of length "length")
-#     OUTPUT: PANDAS SERIES (of "length" sequential integers
-#              beginning with "start" and with index "index")
-#
-#     Create a pandas Series of length "length" with index "index"
-#     and with elements that are sequential integers starting from "start".
-#     You may assume the length of index will be "length".
-#
-#     E.g.,
-#     In [1]: make_series(5, 3, ['a', 'b', 'c'])
-#     Out[1]:
-#     a    5
-#     b    6
-#     c    7
-#     dtype: int64
-#     '''
-#     pass
-#
+    def make_series(_self, start, length, index):
+        return pd.Series(range(start, start + length), index)
 #
 # def data_frame_work(df, colA, colB, colC):
 #     '''
