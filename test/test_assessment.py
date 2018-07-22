@@ -51,18 +51,30 @@ def test_array_work():
     result2 = a.array_work(2, 2, 6, matrixA)
     assert np.all(answer2 == result2)
 
+def test_boolean_indexing():
+    a = Assessment()
+    arr = np.array([[-4, -4, -3],
+                    [-1, 16, -4],
+                    [-3, 6, 4]])
+    result1 = a.boolean_indexing(arr, 0)
+    answer1 = np.array([16, 6, 4])
+    assert np.all(result1 == answer1)
+    result2 = a.boolean_indexing(arr, 10)
+    answer2 = np.array([16])
+    assert np.all(result2 == answer2)
+
 # def test_make_series(self):
 #     result = a.make_series(7, 4, ['a', 'b', 'c', 'd'])
 #     self.assertTrue(isinstance(result, pd.Series))
-#     self.assertEqual(result['a'], 7)
+#     assert result['a'] = 7
 #     self.assertEqual(result['d'], 10)
-#
+
 #     result = a.make_series(22, 5, ['a', 'b', 'c', 'd', 'hi'])
 #     self.assertEqual(result['a'], 22)
 #     self.assertEqual(result['d'], 25)
 #     self.assertEqual(result['hi'], 26)
-#
-#
+
+
 # def test_data_frame_work(self):
 #     df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
 #     colA, colB, colC = ('a', 'b', 'c')
@@ -71,13 +83,4 @@ def test_array_work():
 #     self.assertEqual(df[colC].tolist(), [5, 7, 9])
 #
 #
-# def test_boolean_indexing(self):
-#     arr = np.array([[-4, -4, -3],
-#                     [-1, 16, -4],
-#                     [-3, 6, 4]])
-#     result1 = a.boolean_indexing(arr, 0)
-#     answer1 = np.array([16, 6, 4])
-#     self.assertTrue(np.all(result1 == answer1))
-#     result2 = a.boolean_indexing(arr, 10)
-#     answer2 = np.array([16])
-#     self.assertTrue(np.all(result2 == answer2))
+# 

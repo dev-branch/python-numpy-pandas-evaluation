@@ -40,22 +40,9 @@ class Assessment:
     def array_work(_self, rows, cols, scalar, matrixA):
         return np.dot(matrixA, np.array([[scalar]*cols for row in range(rows)]))
 
-    # def boolean_indexing(arr, minimum):
-#     '''
-#     INPUT: NUMPY ARRAY, INT
-#     OUTPUT: NUMPY ARRAY
-#     (of just elements in "arr" greater or equal to "minimum")
-#
-#     Return an array of only the elements of "arr" that are greater than or
-#     equal to "minimum"
-#
-#     Ex:
-#     In [1]: boolean_indexing([[3, 4, 5], [6, 7, 8]], 7)
-#     Out[1]: array([7, 8])
-#     '''
-#     pass
-#
-#
+    def boolean_indexing(_self, arr, minimum):
+        return [arr[arr >= minimum]]
+
 # # Pandas SECTION
 
 # def make_series(start, length, index):
