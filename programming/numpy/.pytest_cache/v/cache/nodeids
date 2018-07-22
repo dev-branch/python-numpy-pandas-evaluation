@@ -1,0 +1,4 @@
+[
+  "test/test_assesment_np.py::test_array_work",
+  "test/test_assesment_np.py::test_boolean_indexing"
+]
