@@ -27,29 +27,15 @@ class Assessment:
                 chars += len(line)
             return (lines, words, chars)
 
-#     def matrix_multiplication(A, B):
-#         '''
-#         INPUT: LIST (of length n) OF LIST (of length n) OF INTEGERS,
-#                 LIST (of length n) OF LIST (of length n) OF INTEGERS
-#         OUTPUT: LIST OF LIST OF INTEGERS
-#                 (storing the product of a matrix multiplication operation)
-#
-#         Return the matrix which is the product of matrix A and matrix B
-#         where A and B will be (a) integer valued (b) square matrices
-#         (c) of size n-by-n (d) encoded as lists of lists.
-#
-#         For example:
-#         A = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]] corresponds to the matrix
-#
-#             | 2  3  4 |
-#             | 6  4  2 |
-#             |-1  2  0 |
-#
-#         Please do not use numpy. Write your solution in straight python.
-#         '''
-#         pass
-#
-#
+    def matrix_multiplication(_self, A, B):
+        product = [[0]*len(B[0]) for x in range(len(A))]
+        
+        for A_row in range(len(A)):
+            for B_column in range(len(B[0])):
+                for B_row in range(len(B)):
+                    product[A_row][B_column] += A[A_row][B_row] * B[B_row][B_column]
+        return product
+
 # # NumPy SECTION
 #
 # def array_work(rows, cols, scalar, matrixA):

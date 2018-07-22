@@ -18,14 +18,14 @@ def test_invert_dictionary():
 def test_word_count():
     a = Assessment()
     assert a.word_count('../data/alice.txt') == (17, 1615, 8449)
-#
-#
-# def test_matrix_multiplication(self):
-#     A = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]]
-#     B = [[8, -3, 1], [-7, 3, 2], [0, 3, 3]]
-#     answer = [[-5, 15, 20], [20, 0, 20], [-22, 9, 3]]
-#     self.assertEqual(a.matrix_multiplication(A, B), answer)
-#
+
+
+def test_matrix_multiplication():
+    a = Assessment()
+    A = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]]
+    B = [[8, -3, 1], [-7, 3, 2], [0, 3, 3]]
+    answer = [[-5, 15, 20], [20, 0, 20], [-22, 9, 3]]
+    assert a.matrix_multiplication(A, B) == answer
 #
 # def test_array_work(self):
 #     matrixA = np.array([[-4, -2],
