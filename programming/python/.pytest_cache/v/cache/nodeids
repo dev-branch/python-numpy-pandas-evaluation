@@ -1,0 +1,4 @@
+[
+  "test/test_assesment_py.py::test_count_characters",
+  "test/test_assesment_py.py::test_invert_dictionary"
+]
