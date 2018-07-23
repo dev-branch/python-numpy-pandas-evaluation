@@ -4,7 +4,7 @@ import pandas as pd
 
 # PYTHON SECTION
 
-def count_characters(string):
+def count_characters(ckstring):
     '''
     INPUT: STRING
     OUTPUT: DICT (with counts of each character in input string)
@@ -14,8 +14,10 @@ def count_characters(string):
     Characters which with a count of 0 should not be included in the
     output dictionary.
     '''
-    pass
-
+    dict1 = {}
+    for i in ckstring:
+        dict1[i] = ckstring.count(i)
+    return dict1
 
 def invert_dictionary(d):
     '''
@@ -28,7 +30,14 @@ def invert_dictionary(d):
     the set of d's keys which shared the same value.
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
-    pass
+    #return {d[i]: i for i in d}
+    d2 = {}
+    for i in d:
+        if d[i] in d2:
+            d2[d[i]].add(i)
+        else:
+            d2[d[i]] = set(i)
+    return d2 
 
 
 def word_count(filename):
@@ -44,8 +53,14 @@ def word_count(filename):
       2. number of words (broken by whitespace)
       3. number of characters
     '''
-    pass
-
+    nlines, nwords, nchars = 0, 0, 0
+    with open(filename) as f:
+        for line in f:
+            line = line.strip('\n')
+            nlines += 1  
+            nwords += len(line.split())
+            nchars += len(line)
+    return (nlines, nwords, nchars)
 
 def matrix_multiplication(A, B):
     '''
@@ -67,7 +82,16 @@ def matrix_multiplication(A, B):
 
     Please do not use numpy. Write your solution in straight python.
     '''
-    pass
+    C = []
+    for a in A:
+        n = 0
+        c= []
+        while n < len(A):
+            c.append(sum(aa*B[i2][n] for i2, aa in enumerate(a)))
+            n += 1
+        C.append(c)
+    return C
+
 
 
 # NumPy SECTION
@@ -89,7 +113,8 @@ def array_work(rows, cols, scalar, matrixA):
             [5, 6],   *   [5, 5, 5]]
             [7, 8]]
     '''
-    pass
+    m = np.full((rows, cols), scalar)
+    return matrixA.dot(m)
 
 
 def boolean_indexing(arr, minimum):
@@ -105,7 +130,7 @@ def boolean_indexing(arr, minimum):
     In [1]: boolean_indexing([[3, 4, 5], [6, 7, 8]], 7)
     Out[1]: array([7, 8])
     '''
-    pass
+    return arr[arr >= minimum]
 
 
 # Pandas SECTION
@@ -128,7 +153,8 @@ def make_series(start, length, index):
     c    7
     dtype: int64
     '''
-    pass
+    return pd.Series(np.arange(start, start + length), index=index)
+
 
 
 def data_frame_work(df, colA, colB, colC):
@@ -139,4 +165,4 @@ def data_frame_work(df, colA, colB, colC):
     Insert a column (colC) into the dataframe that is the sum of colA and colB.
     Assume that df contains columns colA and colB and that these are numeric.
     '''
-    pass
+    df[colC] = df[colA] + df[colB]

@@ -1,0 +1,10 @@
+[
+  "test/test_assessment.py::test_count_characters",
+  "test/test_assessment.py::test_invert_dictionary",
+  "test/test_assessment.py::test_word_count",
+  "test/test_assessment.py::test_matrix_multiplication",
+  "test/test_assessment.py::test_array_work",
+  "test/test_assessment.py::test_make_series",
+  "test/test_assessment.py::test_data_frame_work",
+  "test/test_assessment.py::test_boolean_indexing"
+]
