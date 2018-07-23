@@ -3,8 +3,12 @@ import pandas as pd
 
 
 # PYTHON SECTION
-
-def count_characters(string):
+class Assessment: 
+    
+    def __init__(self):
+        pass
+    
+    def count_characters(self, string):
     '''
     INPUT: STRING
     OUTPUT: DICT (with counts of each character in input string)
@@ -14,10 +18,13 @@ def count_characters(string):
     Characters which with a count of 0 should not be included in the
     output dictionary.
     '''
-    pass
-
-
-def invert_dictionary(d):
+        letters = []
+        for i in range(len(string)):
+            letters.append(string[i])
+        dict_letters = {letter: letters.count(letter) for letter in letters}
+        return dict_letter
+    
+    def invert_dictionary(self, d):
     '''
     INPUT: DICT
     OUTPUT: DICT (of sets of input keys indexing the same input values
@@ -28,10 +35,23 @@ def invert_dictionary(d):
     the set of d's keys which shared the same value.
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
-    pass
+        letters = []
+        counts = []
+        for letter in d:
+            letters.append(letter)
+        for letter in d:
+            counts.append(d[letter])
+        inv_dict = {}
+        for count in counts:
+            if count not in inv_dict:
+                inv_dict.update({count : []})
+        for letter in d:
+            if d[letter] in inv_dict:
+                inv_dict[d[letter]].append(letter)
+        return inv_dict
 
 
-def word_count(filename):
+    def word_count(self, filename):
     '''
     INPUT: STRING
     OUTPUT: INT, INT, INT (a tuple with line, word,
@@ -44,10 +64,15 @@ def word_count(filename):
       2. number of words (broken by whitespace)
       3. number of characters
     '''
-    pass
+        num_char = len(filename)
+        lines = 0
+        for line in open(filename):
+            lines += 1
+        num_words = len(filename.split())
+        return num_char, num_words, lines    
 
 
-def matrix_multiplication(A, B):
+    def matrix_multiplication(self, A, B):
     '''
     INPUT: LIST (of length n) OF LIST (of length n) OF INTEGERS,
             LIST (of length n) OF LIST (of length n) OF INTEGERS
@@ -67,13 +92,23 @@ def matrix_multiplication(A, B):
 
     Please do not use numpy. Write your solution in straight python.
     '''
-    pass
+        c = []
+        for i in range(0,len(A)):
+            temp=[]
+            for j in range(0,len(B[0])):
+                s = 0
+                for k in range(0,len(A[0])):
+                    s += A[i][k]*B[k][j]
+                temp.append(s)
+            c.append(temp)
+        return c
+
 
 
 # NumPy SECTION
 
 
-def array_work(rows, cols, scalar, matrixA):
+    def array_work(self, rows, cols, scalar, matrixA):
     '''
     INPUT: INT, INT, INT, NUMPY ARRAY
     OUTPUT: NUMPY ARRAY
@@ -89,10 +124,12 @@ def array_work(rows, cols, scalar, matrixA):
             [5, 6],   *   [5, 5, 5]]
             [7, 8]]
     '''
-    pass
+        arrayA = np.array(matrixA)
+        multiplied = arrayA * scalar
+        return multiplied.reshape(rows, cols)
 
 
-def boolean_indexing(arr, minimum):
+    def boolean_indexing(self, arr, minimum):
     '''
     INPUT: NUMPY ARRAY, INT
     OUTPUT: NUMPY ARRAY
@@ -105,12 +142,17 @@ def boolean_indexing(arr, minimum):
     In [1]: boolean_indexing([[3, 4, 5], [6, 7, 8]], 7)
     Out[1]: array([7, 8])
     '''
-    pass
+        atleast = []
+        for row in arr:
+            for num in row:
+                if num >= minimum:
+                    atleast.append(num)
+        return np.array(atleast)
 
 
 # Pandas SECTION
 
-def make_series(start, length, index):
+    def make_series(self, start, length, index):
     '''
     INPUTS: INT, INT, LIST (of length "length")
     OUTPUT: PANDAS SERIES (of "length" sequential integers
@@ -128,15 +170,12 @@ def make_series(start, length, index):
     c    7
     dtype: int64
     '''
-    pass
+        data = []
+        for i in range(len(index)):
+            data.append(start + i)
+        return pd.Series(data = data, index = index)   
 
+    def data_frame_work(self,df, colA, colB, colC):
+        df[colC]=colA+colB
+        return df
 
-def data_frame_work(df, colA, colB, colC):
-    '''
-    INPUT: DATAFRAME, STR, STR, STR
-    OUTPUT: None
-
-    Insert a column (colC) into the dataframe that is the sum of colA and colB.
-    Assume that df contains columns colA and colB and that these are numeric.
-    '''
-    pass

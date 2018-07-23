@@ -1,3 +1,8 @@
+import numpy as np
+import pandas as pd
+import pytest
+from src.assessment import Assessment
+
 def test_count_characters(self):
     string = "abafdcggfaabe"
     answer = {"a": 4, "b": 2, "c": 1, "d": 1, "e": 1, "f": 2, "g": 2}
