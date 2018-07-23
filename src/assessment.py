@@ -14,6 +14,7 @@ def count_characters(string):
     Characters which with a count of 0 should not be included in the
     output dictionary.
     '''
+    '''
     d = {}
     for char in string[::]:
         if char not in d:
@@ -21,8 +22,8 @@ def count_characters(string):
         else:
             d[char] += 1
     return d
-   
-
+    '''
+    return {char: string.count(char) for char in string}
 
 def invert_dictionary(d):
     '''
@@ -35,6 +36,7 @@ def invert_dictionary(d):
     the set of d's keys which shared the same value.
     e.g. {'a': 2, 'b': 4, 'c': 2} => {2: {'a', 'c'}, 4: {'b'}}
     '''
+    
     d_out = {}
     for char in d:
         if d[char] not in d_out:
@@ -42,6 +44,7 @@ def invert_dictionary(d):
         else:
             d_out[d[char]].add(char)
     return d_out
+
 
 
 def word_count(filename):
@@ -91,19 +94,31 @@ def matrix_multiplication(A, B):
     Please do not use numpy. Write your solution in straight python.
     '''
     '''
+    result = [[0] * len(A[0])] * len(B)
     # iterate through rows of A
     for i in range(len(A)):
         # iterate through columns of B
         for j in range(len(B[0])):
             # iterate through rows of B
-            for k in range(len(B)):
+            for k in range(len(A[0])):
                 result[i][j] += A[i][k] * B[k][j]
     return result
+    '''
+    '''
+    M_dot = []
+    for i in range(len(A)):
+        new_row=[]
+        for j in range(len(B[0])):
+            sum = 0
+            for k in range(len(A[0])):
+                sum += A[i][k]*B[k][j]
+            new_row.append(sum)
+        M_dot.append(new_row)
+    return M_dot
     '''
     return [[sum(a*b for a,b in zip(A_row,B_col)) for B_col in zip(*B)] for A_row in A]
 
 # NumPy SECTION
-
 
 def array_work(rows, cols, scalar, matrixA):
     '''
