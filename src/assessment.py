@@ -22,10 +22,10 @@ class Assessment:
 
 
     def invert_dictionary(self,d):
-        dict={'a': 2, 'b': 4,'c':2}
+        
         dict_new={}
         s=set()
-        for i,j in dict.items():
+        for i,j in d.items():
             print(i,j)
             if dict_new.get(j,'novalue')=='novalue':
                 dict_new[j]=set(i)

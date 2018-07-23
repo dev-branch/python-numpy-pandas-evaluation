@@ -1,4 +1,3 @@
 {
-  "test/test_assessment.py::test_array_work": true,
-  "test/test_assessment.py::test_invert_dictionary": true
+  "test/test_assessment.py::test_array_work": true
 }
