@@ -1,0 +1,26 @@
+[I 12:35:11.479 NotebookApp] JupyterLab beta preview extension loaded from /home/eanen/anaconda3/lib/python3.6/site-packages/jupyterlab
+[I 12:35:11.480 NotebookApp] JupyterLab application directory is /home/eanen/anaconda3/share/jupyter/lab
+[I 12:35:11.484 NotebookApp] Serving notebooks from local directory: /home/eanen/ds/pandas_evaluation/python-numpy-pandas-evaluation
+[I 12:35:11.485 NotebookApp] 0 active kernels
+[I 12:35:11.486 NotebookApp] The Jupyter Notebook is running at:
+[I 12:35:11.487 NotebookApp] http://localhost:8888/?token=e9393400f9e877e526cd52d7b3ad039d53ae3fdc8034ea4f
+[I 12:35:11.487 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 12:35:11.487 NotebookApp] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=e9393400f9e877e526cd52d7b3ad039d53ae3fdc8034ea4f&token=e9393400f9e877e526cd52d7b3ad039d53ae3fdc8034ea4f
+[I 12:35:11.796 NotebookApp] Accepting one-time-token-authenticated connection from 127.0.0.1
+[I 12:36:03.943 NotebookApp] Writing notebook-signing key to /home/eanen/.local/share/jupyter/notebook_secret
+[W 12:36:03.944 NotebookApp] Notebook titanic.ipynb is not trusted
+[I 12:36:05.631 NotebookApp] Kernel started: 081c7172-9c76-4505-b253-79c0bd9a24d4
+[I 12:36:06.523 NotebookApp] Adapting to protocol v5.1 for kernel 081c7172-9c76-4505-b253-79c0bd9a24d4
+[I 12:38:05.679 NotebookApp] Saving file at /titanic.ipynb
+[W 12:38:05.681 NotebookApp] Notebook titanic.ipynb is not trusted
+[I 12:38:06.046 NotebookApp] Saving file at /titanic.ipynb
+[W 12:38:06.047 NotebookApp] Notebook titanic.ipynb is not trusted
+[I 12:40:05.659 NotebookApp] Saving file at /titanic.ipynb
+[I 13:22:49.976 NotebookApp] Starting buffering for 081c7172-9c76-4505-b253-79c0bd9a24d4:39293cc880314244991a9ef87b8576c5
+[I 15:06:43.753 NotebookApp] Interrupted...
+[I 15:06:43.753 NotebookApp] Shutting down 1 kernel
+[I 15:06:44.054 NotebookApp] Kernel shutdown: 081c7172-9c76-4505-b253-79c0bd9a24d4
