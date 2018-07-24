@@ -1,8 +1,10 @@
-def test_count_characters(self):
+import pytest as pyt
+from src.assessment import assessment.py
+def test_count_characters():
     string = "abafdcggfaabe"
-    answer = {"a": 4, "b": 2, "c": 1, "d": 1, "e": 1, "f": 2, "g": 2}
-    result = a.count_characters(string)
-    self.assertEqual(result, answer)
+    answer = {"a": 4, "b": 2, "c": 1, "d)": 1, "e": 1, "f": 2, "g": 2}
+    result = count_characters(string)
+    pyt.assertEqual(result, answer)
 
 
 def test_invert_dictionary(self):
